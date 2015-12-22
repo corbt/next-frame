@@ -19,19 +19,19 @@ This quick start assumes that you're already familiar with the `async` and `awai
 import nextFrame from 'next-frame';
 
 let response = await fetch("https://emberall.com/user/1/recordings");
-let recordingsJSON = await response.json();
+let responseJSON = await response.json();
 
-for (let recording of recordingsJSON) {
+for (let recording of responseJSON.recordings) {
   await nextFrame(); // The javascript will yield here and not resume execution until the next frame.
   mergeRecordingToLocalDatabase(recording);
 }
 ```
 
-For the previous example, let's assume that we get several hundred `recording`s back from the server, and each one takes about 1/100th of a second to process. Normally processing all of them would take several seconds, and would cause unacceptable lag. However, using `await nextFrame()` we break up our computation and have much better perceived responsiveness.
+For the previous example, let's assume that we get several hundred recordings back from the server as an array, and each one takes about 1/100th of a second to process. Normally processing all of them would take several seconds, and would cause unacceptable lag. However, using `await nextFrame()` we break up our computation and have much better perceived responsiveness.
 
 ## mapInFrames
 
-In the common case (like the one in the example) that you just want to iterate over a collection and process one element per frame, we've included a convenience function `mapInFrames` that does exactly that. Here's the same example, rewritten with `mapInFrames`:
+In the common case (like the one in the example above) that you just want to iterate over a collection and process one element per frame, we've included a convenience function `mapInFrames` that does exactly that. Here's the same example, rewritten with `mapInFrames`:
 
 ```javascript
 import { mapInFrames } from 'next-frame';
