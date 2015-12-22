@@ -1,6 +1,6 @@
 {
   "name": "next-frame",
-  "version": "1.0.0",
+  "version": "0.2.2",
   "description": "Returns a promise that resolves on the next animationFrame",
   "main": "index.js",
   "scripts": {
