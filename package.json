@@ -1,0 +1,25 @@
+{
+  "name": "next-frame",
+  "version": "1.0.0",
+  "description": "Returns a promise that resolves on the next animationFrame",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/corbt/next-frame.git"
+  },
+  "keywords": [
+    "promise",
+    "async",
+    "react-native",
+    "requestAnimationFrame"
+  ],
+  "author": "Kyle Corbitt",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/corbt/next-frame/issues"
+  },
+  "homepage": "https://github.com/corbt/next-frame#readme"
+}
