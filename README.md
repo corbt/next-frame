@@ -1,6 +1,6 @@
 # Introduction
 
-'next-frame' is a small tool intended to make it easier to create performant UIs in [React Native](https://facebook.github.io/react-native/). You can read more about the rationale behind it on the [blog post introducing it](https://corbt.com/posts/2015/12/22/breaking-up-heavy-processing-in-react-native.html).
+'next-frame' is a small tool intended to make it easier to create performant UIs in [React Native](https://facebook.github.io/react-native/). You can read more about the rationale behind it in the [blog post introducing it](https://corbt.com/posts/2015/12/22/breaking-up-heavy-processing-in-react-native.html).
 
 React Native and Javascript don't give us access to background threads without writing native code. This means that every computation we execute should ideally take less than 1/60th of a second so it doesn't interfere with animation performance or percieved responsiveness.
 
@@ -12,6 +12,8 @@ Some computations inevitably take longer than this. When they do, React Native g
 `'next-frame'` is designed to be a third option. It allows you to break up an expensive computation into smaller parts and run just part of it on each repaint. This maintains the responsiveness of your UI while the computation is still ongoing.
 
 # Quick Start
+
+This quick start assumes that you're already familiar with the `async` and `await` keywords, which you can read up on [here](https://medium.com/the-exponent-log/react-native-meets-async-functions-3e6f81111173#.6yek596lu). Async and await are enabled by default in current versions of React Native, so this pattern works in RN out of the box.
 
 ```javascript
 import nextFrame from 'next-frame';
@@ -29,7 +31,7 @@ For the previous example, let's assume that we get several hundred `recording`s 
 
 ## mapInFrames
 
-In the common case (like the one in the example) that you just want to iterate over a collection and process one element per iteration, we've included a convenience function `mapInFrames` that does exactly that. Here's the same example, rewritten with `mapInFrames`:
+In the common case (like the one in the example) that you just want to iterate over a collection and process one element per frame, we've included a convenience function `mapInFrames` that does exactly that. Here's the same example, rewritten with `mapInFrames`:
 
 ```javascript
 import { mapInFrames } from 'next-frame';
