@@ -51,3 +51,7 @@ Easy, and not imperative at all. :smiley:
 # Other Uses
 
 This library was developed with React Native in mind and has only been tested there. However, it should work fine in the browser as well.
+
+# License
+
+This library and all files contained within are licensed under the BSD 2 clause license found in LICENSE.md
